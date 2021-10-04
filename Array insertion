@@ -1,0 +1,25 @@
+#include <stdio.h>
+void il(int arr[],int size,int index,int ele)
+{
+	for(int i=size-1;i>=index;i--)
+	{
+		arr[i+1]=arr[i];
+	}
+	arr[2]=ele;
+	for(int i=0;i<=5;i++)
+	{
+		printf("%d\n",arr[i]);
+	}
+}
+int main()
+{
+	printf("Hello, world!\n");
+	int a[10]={1,2,3,4,5};
+	for(int i=0;i<5;i++)
+	{
+		printf("%d",a[i]);
+	}
+	int sizes=5,inde=2,elem=70;
+	il(a,sizes,inde,elem);
+	return 0;
+}
