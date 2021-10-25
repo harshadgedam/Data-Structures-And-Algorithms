@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include<stdlib.h>
+struct node 
+{
+	int size;
+	int top;
+	int *arr;
+};
+int top2(struct node *arr2)
+{
+	printf("The Top value =%d",arr2->arr[arr2->top]);
+};
+void botom(struct node *botom)
+{
+	printf("the botom value is %d",botom->arr[0]);
+}
+int push(struct node *ptr,int data)
+{
+	if(ptr->top==ptr->size-1)
+	{
+		printf("stack is full");
+	}else
+	{
+		ptr->top++;
+		ptr->arr[ptr->top]=data;
+	};
+}
+int pop(struct node *ptr)
+{
+	if(ptr->top<0)
+	{
+		printf("stack is Empty");
+	}else
+	{
+		ptr->top--;
+	};
+}
+int display(struct node *ptr)
+{
+	if(ptr->top<0)
+	{
+		printf("stack is empty");
+	}else
+	for(int i=ptr->top;i>=0;i--)
+	{
+		printf("%d",ptr->arr[i]);
+	}
+}
+int main()
+{
+	struct node *s=(struct node*)malloc(sizeof(struct node));
+	s->size=5;
+	s->top=-1;
+s->arr=(int *)malloc(s->size*sizeof(int ));
+int ch,data=67;
+while(1)
+{
+	printf("enter your choice");
+	scanf("%d",&ch);
+	if(ch==1)
+	{
+		printf("enter a data");
+		scanf("%d",&data);
+	}
+	switch(ch)
+	{
+		case 1:
+			push(s,data);
+			break;
+		case 2:
+			pop(s);
+		case 3:
+			display(s);
+			break;
+		case 4:
+		top2(s);
+		break;
+		case 5:
+		botom(s);
+		break;
+		
+	}
+};
+
+	return 0;
+}
