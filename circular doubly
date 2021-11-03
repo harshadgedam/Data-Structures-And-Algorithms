@@ -1,0 +1,16 @@
+struct node * insert(struct node *start,int data)
+{
+    struct node *ptr=start->next, *newnode=(struct node *)malloc(sizeof(struct node));
+
+    printf("Insert Algoritham \n");
+    newnode->data=data;
+    while(ptr->next!=start)
+    {
+        ptr=ptr->next;
+    }
+    ptr->next=newnode;
+    newnode->next=start;
+    newnode->prev=ptr;
+    start=newnode;
+    return start;
+};
