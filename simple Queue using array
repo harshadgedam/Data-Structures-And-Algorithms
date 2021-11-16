@@ -1,0 +1,60 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+struct Queue
+{
+    int size;
+    int roar;
+    int front;
+    int *arr;
+};
+int enqueue(struct Queue *qptr,int item)
+{
+    if(qptr->roar==qptr->size-1)
+    {
+        printf("Overflow\n");
+        return 0;
+    }
+    if(qptr->front=-1)
+    {
+        qptr->front++;
+    }
+    qptr->roar++;
+    qptr->arr[qptr->roar]=item;
+
+}
+int dequeue(struct Queue *qptr)
+{
+    if( qptr->front>qptr->roar || qptr->front==-1)
+    {
+        printf("Underflow");
+        return 0;
+    }
+    qptr->front++;
+}
+int display(struct Queue *qptr)
+{
+    if( qptr->front>qptr->roar || qptr->front==-1)
+    {
+        printf("Underflow");
+        return 0;
+    }
+    for(int i=qptr->front;i<=qptr->roar;i++)
+    {
+        printf("Queue1->%d = %d \n",i+1,qptr->arr[i]);
+    };
+}
+int main()
+{
+    struct Queue s;
+    s.roar=-1;
+    s.front=-1;
+    s.size=3;
+    s.arr=(int *)malloc(s.size*sizeof(int));
+    //enqueue(&s,12);
+    //enqueue(&s,22);
+    dequeue(&s);
+   // display(&s);
+    getch();
+    return 0;
+}
