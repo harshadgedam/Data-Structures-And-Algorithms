@@ -1,0 +1,34 @@
+#include<stdio.h>
+void selection_sort(int arr[],int size)
+{
+    int temp,j;
+    int miniindex;
+    for(int i=0;i<size-1;i++)
+    {
+        miniindex=i;
+        for(j=i+1;j<size;j++)
+        {
+            if(arr[j]<arr[miniindex])
+            {
+                miniindex=j;
+            }
+        }
+        temp=arr[i];
+        arr[i]=arr[miniindex];
+        arr[miniindex]=temp;
+    }
+};
+void display(int arr[],int size)
+{
+    for(int i=0;i<size;i++)
+    {
+        printf("%d\n",arr[i]);
+    }
+}
+void main()
+{
+    int arr[]={20,10,33,16,7,100};
+    int size=6;
+    selection_sort(arr,size);
+    display(arr,size);
+}
